@@ -4,7 +4,7 @@ services:
   - docker
   
 script:
-  - docker pull $DOCKER_REPO
+  - docker pull $DOCKER_REPO || true
   - docker build --cache-from $DOCKER_REPO -t $DOCKER_REPO .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
