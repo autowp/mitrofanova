@@ -1,0 +1,35 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /app/public;
+    index index.php;
+
+    location = / {
+        rewrite .* /index.php;
+    }
+
+    location /index.php {
+        fastcgi_pass  unix:/var/run/php/fpm-www.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include       fastcgi_params;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+        charset    utf-8;
+    }
+
+    location ~* ^.+\.(jpg|jpeg|gif|css|js|ico|png|txt|woff|woff2|ttf)$ {
+        expires 7d;
+        error_log off;
+    }
+
+    location ~ /\.ht {
+        deny  all;
+    }
+
+    location ~ /\.git {
+        deny all;
+    }
+}

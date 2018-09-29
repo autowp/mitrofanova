@@ -1,0 +1,31 @@
+{
+    "name": "autowp/shortify",
+    "description": "URL shortener",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry P.",
+            "email": "dmitry@pereslegin.ru"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpmd/phpmd": "^2.6",
+        "zendframework/zend-coding-standard" : "~1.0.0"
+    },
+    "autoload" : {
+		"psr-4" : {
+			"Autowp\\Mitrofanova\\" : "src"
+		}
+    },
+    "scripts" : {
+		"check" : [
+			"@cs-check",
+			"@test"
+		],
+		"cs-check" : "phpcs --encoding=utf-8",
+		"cs-fix" : "phpcbf --encoding=utf-8",
+		"phpmd" : "phpmd src,public/index.php text ruleset.xml --suffixes php,phtml"
+	}
+}
