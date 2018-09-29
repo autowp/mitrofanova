@@ -14,7 +14,7 @@ composer phpmd
 ## Run
 
 ```
-sudo docker run autowp/mitrofanova -p 80:80
+sudo docker run -d -p 80:80 autowp/mitrofanova
 ```
 
 ## Live

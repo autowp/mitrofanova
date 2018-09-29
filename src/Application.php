@@ -98,12 +98,12 @@ class Application
                 $ctrl = new IndexController();
                 break;
             case UrlController::class:
-                $pdo = new PDO($this->config['dsb']);
+                $pdo = new PDO($this->config['dsn']);
                 $model = new Model\PDOUrlCatalog($pdo);
                 $ctrl = new UrlController($model);
                 break;
             case NumberController::class:
-                $pdo = new PDO($this->config['dsb']);
+                $pdo = new PDO($this->config['dsn']);
                 $model = new Model\PDONumberCatalog($pdo);
                 $ctrl = new NumberController($model);
                 break;

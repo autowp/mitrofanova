@@ -2,12 +2,12 @@ web:
   image: autowp/mitrofanova
   container_name: mitrofanova_web
   restart: always
-  volumes:
-  - ./src:/app/src
-  - ./templates:/app/templates
-  - ./public:/app/public
-  - ./data:/app/data
-  - ./db.sql:/app/db.sql
-  - ./config.php:/app/config.php
+  #volumes:
+  #- ./src:/app/src
+  #- ./templates:/app/templates
+  #- ./public:/app/public
+  #- ./data:/app/data
+  #- ./db.sql:/app/db.sql
+  #- ./config.php:/app/config.php
   ports:
   - "80:80"
